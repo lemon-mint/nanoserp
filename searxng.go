@@ -9,17 +9,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-type SERP struct {
-	Results []SearchResult `json:"results"`
-}
-
-type SearchResult struct {
-	Title   string   `json:"title"`
-	URL     string   `json:"url"`
-	Content string   `json:"content"`
-	Engines []string `json:"engines"`
-}
-
 func SearchSearXNG(client *http.Client, endpoint, keyword string, engines []string) ([]SearchResult, error) {
 	u, err := url.Parse(endpoint)
 	if err != nil {
